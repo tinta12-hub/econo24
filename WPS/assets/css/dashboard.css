@@ -1,0 +1,411 @@
+/* ==========================================================================
+   24/7 - Dashboard & Operations Center Stylesheet
+   ========================================================================== */
+
+/* 24/7 Operations Pulse Hero Banner */
+.ops-pulse-banner {
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.85));
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    margin-bottom: 1.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+}
+
+.ops-pulse-banner::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -20%;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, var(--brand-cyan-glow) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.pulse-banner-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    z-index: 1;
+}
+
+.pulse-badge-live {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--brand-cyan);
+    background: rgba(6, 182, 212, 0.12);
+    border: 1px solid rgba(6, 182, 212, 0.3);
+    padding: 0.25rem 0.65rem;
+    border-radius: var(--radius-full);
+    width: fit-content;
+}
+
+.pulse-banner-title {
+    font-size: 1.45rem;
+    font-weight: 800;
+    color: var(--text-primary);
+}
+
+.pulse-banner-desc {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    max-width: 650px;
+}
+
+.pulse-banner-stats {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    z-index: 1;
+}
+
+.pulse-stat-box {
+    text-align: right;
+}
+
+.pulse-stat-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: var(--text-primary);
+}
+
+.pulse-stat-lbl {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--text-muted);
+}
+
+/* Dashboard Two-Column Grid */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 2fr 1.15fr;
+    gap: 1.5rem;
+    margin-bottom: 1.75rem;
+}
+
+@media (max-width: 1200px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Who's On Duty Live Board */
+.duty-board-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    max-height: 480px;
+    overflow-y: auto;
+    padding-right: 0.25rem;
+}
+
+.duty-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    padding: 0.85rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: var(--transition);
+}
+
+.duty-card:hover {
+    border-color: var(--border-light);
+    background: var(--bg-surface-hover);
+}
+
+.duty-emp-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+}
+
+.duty-avatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    color: #ffffff;
+    font-size: 0.95rem;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.duty-status-dot {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid var(--bg-surface);
+    background: var(--status-success);
+}
+
+.duty-status-dot.on-break {
+    background: var(--status-warning);
+}
+
+.duty-emp-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.duty-emp-name {
+    font-weight: 700;
+    font-size: 0.92rem;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.duty-emp-role {
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+}
+
+.duty-emp-branch {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+}
+
+.duty-timing-meta {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 2px;
+}
+
+.duty-shift-pill {
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 0.15rem 0.5rem;
+    border-radius: var(--radius-full);
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.duty-time-worked {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.duty-clock-in-time {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+}
+
+/* Today's Shift Roster Coverage Timeline */
+.roster-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.roster-shift-row {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+}
+
+.roster-row-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.roster-row-title {
+    font-weight: 700;
+    font-size: 0.92rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.roster-row-time {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+.roster-progress-bar-bg {
+    width: 100%;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius-full);
+    overflow: hidden;
+}
+
+.roster-progress-fill {
+    height: 100%;
+    border-radius: var(--radius-full);
+    transition: width 0.5s ease;
+}
+
+.roster-row-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+}
+
+/* 24-Hour Operational Pulse Chart Card */
+.chart-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    padding: 1.25rem;
+    margin-bottom: 1.75rem;
+}
+
+.chart-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.chart-legend {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.legend-color-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.svg-chart-container {
+    width: 100%;
+    height: 260px;
+    position: relative;
+}
+
+/* Overnight Shift Special Styling */
+.badge-overnight {
+    background: rgba(139, 92, 246, 0.2);
+    color: #c084fc;
+    border: 1px solid rgba(139, 92, 246, 0.4);
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* Handover Alert Callout Card */
+.handover-callout {
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.15), rgba(15, 23, 42, 0.95));
+    border: 1px solid rgba(245, 158, 11, 0.35);
+    border-radius: var(--radius-lg);
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.handover-callout-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.handover-icon-glow {
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-md);
+    background: rgba(245, 158, 11, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--status-warning);
+    flex-shrink: 0;
+}
+
+.handover-title {
+    font-weight: 800;
+    font-size: 1rem;
+    color: #ffffff;
+}
+
+.handover-desc {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+/* Interactive Kiosk Modal Elements */
+.kiosk-pin-display {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 2rem;
+    letter-spacing: 8px;
+    text-align: center;
+    padding: 0.75rem;
+    background: var(--bg-surface);
+    border: 2px solid var(--border-light);
+    border-radius: var(--radius-md);
+    color: var(--brand-cyan);
+    min-height: 60px;
+}
+
+.kiosk-keypad {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+.kiosk-btn {
+    height: 54px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.25rem;
+    font-weight: 700;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.kiosk-btn:hover {
+    background: var(--bg-surface-hover);
+    border-color: var(--brand-cyan);
+    color: var(--brand-cyan);
+}
